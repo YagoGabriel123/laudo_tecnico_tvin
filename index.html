@@ -8,89 +8,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
   <!-- Estilos CSS personalizados -->
-  <style>
-    /* Estilos CSS aqui */
-    .form-container {
-      width: 793.8px;
-      height: 1122.96px;
-      margin: 0 auto;
-    }
-
-    /* Estilos para os campos do formulário */
-    .form-field {
-      margin-bottom: 2px;
-      width: 350px;
-    }
-
-    .form-field label {
-      display: block;
-      margin-bottom: 1px;
-    }
-
-    .form-field input,
-    .form-field textarea {
-      width: 100%;
-      padding: 5px;
-    }
-
-    /* Estilos para o botão de envio do formulário */
-    .form-field input[type="submit"] {
-      background-color: #150d86;
-      color: white;
-      cursor: pointer;
-    }
-
-    /* Estilos para o campo de arquivo */
-    .form-field input[type="file"] {
-      display: none;
-    }
-
-    .form-field .file-label {
-      background-color: #150d86;
-      color: white;
-      padding: 8px 15px;
-      cursor: pointer;
-    }
-
-    .form-field .file-name {
-      margin-top: 5px;
-    }
-
-    /* Estilos para o grid do formulário */
-    .form-grid {
-      display: grid;
-      justify-items: left;
-      grid-template-columns: repeat(2, 1fr);
-      margin: 2rem 1rem 1rem 1rem;
-    }
-
-    .form-grid .form-field {
-      grid-column: span 1;
-    }
-
-    /* Estilos para a pré-visualização da imagem */
-    .file-preview img {
-      width: 200px;
-    }
-
-    /* Estilos adicionais */
-    .camposImg {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-
-    .footer{
-      color: black;
-      opacity: 40%;
-    }
-  </style>
+  <link rel="stylesheet" href="./styles/index.css">
 </head>
 
 <body>
   <div class="form-container">
     <!-- Imagem do título do formulário -->
-    <img src="TITULO_ORÇAMENTO.PNG" alt="Imagem do Título" style="width: 100%; max-height: 200px;">
+    <img src="./img/TITULO_ORÇAMENTO.PNG" alt="Imagem do Título" style="width: 100%; max-height: 200px;">
 
     <!-- Formulário de suporte -->
     <form id="support-form">
@@ -128,26 +52,24 @@
       </div>
 
       <!-- Descrição do problema -->
-      <h5 style="text-align: center;">Prezado Cliente,
+      <h6 style="text-align: center; margin: 32px;">Prezado Cliente,
         Após análise técnica do seu equipamento, foram identificados os seguintes problemas:
         A(s) imagem(s) a seguir mostra(m) a peça mencionada.
-      </h5>
+      </h6>
 
       <!-- Campos para carregar imagens -->
       <div class="form-grid">
         <div class="form-field">
-          <label for="image1">Imagem 1:</label>
           <input type="file" id="image1" name="image1" accept="image/*"
             onchange="displayImagePreview('image1', 'image1-preview', 'image1-label')">
-          <label class="file-label" id="image1-label" for="image1">Selecionar Imagem</label>
+          <label class="file-label" id="image1-label" for="image1" style="text-align: center;">Imagem 1</label>
           <div class="file-name" id="image1-name"></div>
           <div class="file-preview" id="image1-preview"></div>
         </div>
         <div class="form-field">
-          <label for="image2">Imagem 2:</label>
           <input type="file" id="image2" name="image2" accept="image/*"
             onchange="displayImagePreview('image2', 'image2-preview', 'image2-label')">
-          <label class="file-label" id="image2-label" for="image2">Selecionar Imagem</label>
+          <label class="file-label" id="image2-label" for="image2" style="text-align: center;">Imagem 2</label>
           <div class="file-name" id="image2-name"></div>
           <div class="file-preview" id="image2-preview"></div>
         </div>
@@ -156,68 +78,48 @@
       <!-- Outros campos do formulário -->
       <div class="camposImg"></div>
       <div class="form-grid">
-        <div class="form-field">
-          <label for="technician-name">Nome do Técnico:</label>
-          <select id="technician-name" name="technician-name" required>
+
+        <div class="form-floating mb-3 form-field">
+          <select id="technician-name floatingInput" class="form-select mb-3" aria-label="Default select example">
             <option value="">Selecione o Técnico</option>
-            <option value="Yago">Yago Gabriel S. Abreu</option>
-            <option value="Wanderson">Wanderson Luiz F. Carvalho</option>
-            <option value="Fernandes">M. A. Fernandes</option>
+              <option value="Yago">Yago Gabriel S. Abreu</option>
+              <option value="Wanderson">Wanderson Luiz F. Carvalho</option>
+              <option value="Fernandes">Marcos A. Fernandes</option>
           </select>
+          <label for="floatingInput">Nome do Técnico</label>
         </div>
-        <div class="form-field">
-          <label for="date">Data:</label>
-          <input type="datetime-local" id="date" name="date" required>
+
+        <div class="form-floating mb-3 form-field">
+          <input type="date" class="form-control" id="data" name="data" required>
+          <label for="floatingInput">Data</label>
         </div>
-        <div class="form-field">
-          <label for="conclusion">Conclusão:</label>
-          <textarea id="conclusion" name="conclusion" cols="200" rows="10" required></textarea>
-        </div>
+      </div>
+
+      <div class="mb-3" style="margin: 15px;">
+        <label for="conclusion" class="form-label">Conclusão:</label>
+        <textarea name="conclusion" class="form-control" id="conclusion" rows="3"></textarea>
       </div>
 
     </form>
 
     <!-- Rodapé -->
     <section class="footer">
-      <h3 class="" align="center">SUPORTE A CLIENTES<br>
+      <h6 class="" align="center">SUPORTE A CLIENTES<br>
         Para informações: (84) 4005-2755<br>
         Para sugestões, reclamações (84) 3213-3339<br>
         fernandes@tvin.com.br<br>
         Horário de atendimento: Segunda a Sexta-feira: das 8 às 17:00
-      </h3>
+      </h6>
     </section>
 
     <!-- Botão para salvar em PDF -->
-    <div class="form-field">
+    <div class="form-field button-print">
       <button onclick="window.print()">Salvar em PDF</button>
     </div>
   </div>
 
   <!-- Script para exibir visualização da imagem selecionada -->
-  <script>
-    function displayImagePreview(inputId, previewId) {
-      const fileInput = document.getElementById(inputId);
-      const filePreview = document.getElementById(previewId);
-      const file = fileInput.files[0];
-
-      if (file) {
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-          const image = document.createElement('img');
-          image.src = e.target.result;
-          filePreview.innerHTML = '';
-          filePreview.appendChild(image);
-          leLabel.style.display = 'none'; // Esconde o texto "Selecionar Imagem"
-        }
-
-        reader.readAsDataURL(file);
-      } else {
-        filePreview.innerHTML = '';
-        fileLabel.style.display = 'block'; // Mostra o texto "Selecionar Imagem" novamente
-      }
-    }
-  </script>
+  <script src="./scripts/viewImagem.js"></script>
 </body>
 
 </html>
