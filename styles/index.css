@@ -89,6 +89,10 @@
   margin: auto;
 }
 
+textarea {
+  resize: none;
+}
+
 /* Configurações para impressão */
 @media print {
   .form-container {
