@@ -1,89 +1,101 @@
 /* Estilos CSS aqui */
 .form-container {
-    width: 793.8px;
-    height: 1122.96px;
-    margin: 0 auto;
+  width: 793.8px;
+  height: 1122.96px;
+  margin: 0 auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+/* Estilos para os campos do formulário */
+.form-field {
+  margin-bottom: 2px;
+  width: 350px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 1px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 5px;
+}
+
+/* Estilos para o botão de envio do formulário */
+.form-field input[type="submit"] {
+  background-color: #150d86;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilos para o campo de arquivo */
+.form-field input[type="file"] {
+  display: none;
+}
+
+.form-field .file-label {
+  background-color: #150d86;
+  color: white;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.form-field .file-name {
+  margin-top: 5px;
+}
+
+/* Estilos para o grid do formulário */
+.form-grid {
+  display: grid;
+  justify-items: left;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 2rem 1rem 1rem 1rem;
+}
+
+.form-grid .form-field {
+  grid-column: span 1;
+}
+
+/* Estilos para a pré-visualização da imagem */
+.file-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-preview img {
+  max-height: 225px;
+  max-width: 325px;
+}
+
+/* Estilos adicionais */
+.camposImg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer {
+  color: black;
+  opacity: 40%;
+}
+
+.button-print{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+/* Configurações para impressão */
+@media print {
+  .form-container {
+    box-shadow: none;
   }
 
-  /* Estilos para os campos do formulário */
-  .form-field {
-    margin-bottom: 2px;
-    width: 350px;
-  }
-
-  .form-field label {
-    display: block;
-    margin-bottom: 1px;
-  }
-
-  .form-field input,
-  .form-field textarea {
-    width: 100%;
-    padding: 5px;
-  }
-
-  /* Estilos para o botão de envio do formulário */
-  .form-field input[type="submit"] {
-    background-color: #150d86;
-    color: white;
-    cursor: pointer;
-  }
-
-  /* Estilos para o campo de arquivo */
-  .form-field input[type="file"] {
+  .button-print {
     display: none;
   }
-
-  .form-field .file-label {
-    background-color: #150d86;
-    color: white;
-    padding: 8px 15px;
-    cursor: pointer;
-  }
-
-  .form-field .file-name {
-    margin-top: 5px;
-  }
-
-  /* Estilos para o grid do formulário */
-  .form-grid {
-    display: grid;
-    justify-items: left;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 2rem 1rem 1rem 1rem;
-  }
-
-  .form-grid .form-field {
-    grid-column: span 1;
-  }
-
-  /* Estilos para a pré-visualização da imagem */
-  .file-preview {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .file-preview img {
-    max-height: 225px;
-    max-width: 325px;
-  }
-
-  /* Estilos adicionais */
-  .camposImg {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .footer{
-    color: black;
-    opacity: 40%;
-  }
-
-  /* Configurações para impressão */
-  @media print {
-    .button-print {
-      display: none;
-    }
-  }
+}
